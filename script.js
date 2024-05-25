@@ -1,42 +1,29 @@
-class GalleryFilter {
-    filtersSelector = ".cs-button";
-    imagesSelector = ".cs-listing";
-    activeClass = "cs-active";
-    hiddenClass = "cs-hidden";
+document.addEventListener('DOMContentLoaded', function () {
+    let currentIndex = 0;
+    const banners = document.querySelectorAll('.banner-container > .cs-background');
+    const totalBanners = banners.length;
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
 
-    constructor() {
-        const $filters = document.querySelectorAll(this.filtersSelector);
-        this.$activeFilter = $filters[0];
-        this.$images = document.querySelectorAll(this.imagesSelector);
-
-        this.$activeFilter.classList.add(this.activeClass);
-
-        for (const $filter of $filters) {
-            $filter.addEventListener("click", () => this.onClick($filter));
-        }
+    function showBanner(index) {
+        banners.forEach((banner, i) => {
+            banner.classList.remove('active');
+            if (i === index) {
+                banner.classList.add('active');
+            }
+        });
     }
 
-    onClick($filter) {
-        this.filter($filter.dataset.filter);
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalBanners) % totalBanners;
+        showBanner(currentIndex);
+    });
 
-        const { activeClass } = this;
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalBanners;
+        showBanner(currentIndex);
+    });
 
-        this.$activeFilter.classList.remove(activeClass);
-        $filter.classList.add(activeClass);
-
-        this.$activeFilter = $filter;
-    }
-
-    filter(filter) {
-        const showAll = filter == "all";
-        const { hiddenClass } = this;
-
-        for (const $image of this.$images) {
-            const show = showAll || $image.dataset.category == filter;
-            $image.classList.toggle(hiddenClass, !show);
-        }
-    }
-}
-
-new GalleryFilter();
-                            
+    // Initialize the first banner
+    showBanner(currentIndex);
+});
