@@ -299,7 +299,8 @@ body {
     #cs-navigation .cs-button-solid {
       display: none;
     }
-  }
+}
+
   /*-- -------------------------- -->
   <---     Desktop Navigation     -->
   <--- -------------------------- -*/
@@ -425,7 +426,7 @@ body {
     }
   }
 
-  /*-- -------------------------- -->
+/*-- -------------------------- -->
 <---          Banner            -->
 <--- -------------------------- -*/
 
@@ -489,7 +490,8 @@ body {
         /* Makes img tag act as a background image */
         object-fit: cover;
     }
-/* } */
+}
+
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
     #banner-712 .cs-background:before {
@@ -500,7 +502,7 @@ body {
             rgba(0, 0, 0, 0) 100%
         );
     }
-/* } */
+}
 
 #banner-712 .cs-background {
     position: absolute;
@@ -525,7 +527,7 @@ body {
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
-    pointer-events: none; /* Allows clicks to pass through the banner-nav element */
+    pointer-events: none; 
 }
 
 #banner-712 .nav-left, .nav-right {
@@ -549,7 +551,7 @@ body {
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #collection-1602 {
-      padding: var(--sectionPadding);
+      padding: 20px;
     }
     #collection-1602 .cs-container {
       width: 100%;
@@ -559,7 +561,7 @@ body {
       flex-direction: column;
       align-items: center;
       /* 48px - 64px */
-      gap: clamp(3rem, 6vw, 4rem);
+      gap: clamp(1rem, 6vw, 1rem);
       position: relative;
       z-index: 1;
       padding: 20px;
@@ -869,6 +871,7 @@ body {
         column-gap: clamp(1rem, 1.5vw, 1.25rem);
         /* 24px - 60px */
         row-gap: clamp(1.5rem, 5vw, 3.75rem);
+        padding-bottom: 20px;
     }
     #services-448 .cs-item {
         list-style: none;
@@ -1058,7 +1061,7 @@ body {
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #promotions-1567 {
-      padding: var(--sectionPadding);
+      padding: 20px;
     }
     #promotions-1567 .cs-container {
       width: 100%;
@@ -1366,5 +1369,3 @@ body {
         width: 100%;
     }
 }
-
-                                
